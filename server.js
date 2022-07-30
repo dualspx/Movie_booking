@@ -64,13 +64,9 @@ var index = require('./routes/index');
 app.use('/', index);
 
 var admin = require('./routes/admin');
-const { request } = require('express');
 app.use('/admin',admin)
 
 // app.use('/',ticketRouter)
-
-
-
 
 app.get('/logout',(req,res) =>{
   res.redirect('/login')

@@ -11,10 +11,6 @@ router.get('/',(req,res)=>{
     res.render('adminlogin.ejs')
 })
 
-router.get('/adminLogin',(req,res) => {
-    res.redirect('./adminLogin')
-})
-
 router.post('/adminLogin',(req,res)=>{
     UserAdmin.findOne({
         emailAdmin:req.body.emailAdmin,
@@ -28,9 +24,12 @@ router.post('/adminLogin',(req,res)=>{
 
 })
     
-
 router.get('/adminIndex',(req,res)=>{
     res.render('adminIndex.ejs')
+})
+
+router.get('/adminLogout',(req,res) => {
+    res.redirect('./')
 })
 
 router.get('/userList',(req,res)=>{
