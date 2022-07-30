@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">    
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket Confirmation</title>
+</head>
+<body>
+    <%-include('_header') %> 
+    <br>
+    <div class="container">
+        <table>
+            <tr>
+                <td>
+                    <img src="<%=data.poster%>" style="width: 18rem;">
+                </td>
+                <td>
+                    <div class="container">    
+                        <h1><%=data.title%> </h1>
+                        <h2>Time show: <%=data.time %> </h2>
+                        <form action="/accept" method="post">
+                            <input name="confirmTitle" type="hidden" value="<%=data.title %> ">
+                      
+
+                            <input name="confirmTime" type="hidden" value="<%=data.time %> ">
+                            <p>Your Total ticket is <%=data.count %> </p>
+
+                            <input name="confirmCount" type="hidden" value="<%=data.count %> ">
+                            <p>Your Total price is RM<%=data.total %> </p>
+
+                            <input name="confirmTotal" type="hidden" value="<%=data.total %> ">
+                            <input name="confirmPoster" type="hidden" value="<%=data.poster %> ">
+                            <div class="btn-group mr-2" role="group">
+                                <button class="btn btn-primary" >Accept</button>
+                                <a class="btn btn-info" href="/ticket">Back</a>
+                            </div>                        
+                        </form>            
+                    </div>
+                </td>
+            </tr>
+        </table>     
+    </div>  
+</body>
+</html>
