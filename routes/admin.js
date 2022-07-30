@@ -29,7 +29,7 @@ router.get('/adminIndex',(req,res)=>{
 })
 
 router.get('/adminLogout',(req,res) => {
-    res.redirect('./')
+    res.redirect('/')
 })
 
 router.get('/userList',(req,res)=>{
