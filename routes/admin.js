@@ -7,7 +7,7 @@ var mongoose = require('mongoose');
 var user = require('../models/user')
 const movieList = require('../models/movielist')
 
-router.get('/',(req,res)=>{
+router.get('/admin',(req,res)=>{
     res.render('adminlogin.ejs')
 })
 
@@ -18,7 +18,7 @@ router.post('/adminLogin',(req,res)=>{
     },
         function(err,data){
         if(data){
-            res.redirect('./adminIndex')
+            res.redirect('/adminIndex')
         }else res.send({message:"admin fail"})
     })
 
