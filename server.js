@@ -17,7 +17,7 @@ initializePassport(
     email => User.find(User => User.email === email)
 )
 
-app.set('view engine','ejs')
+// app.set('view engine','ejs')
 
 if(process.env.NODE_ENV !== 'production'){
   require('dotenv').config()
@@ -61,8 +61,10 @@ app.use(express.static(__dirname + '/views'));
 
 var admin = require('./routes/admin');
 var index = require('./routes/index');
-app.use('/', (index,admin));
 
+
+app.use('/', index);
+app.use('/admin',admin)
 
 
 // app.use('/',ticketRouter)
