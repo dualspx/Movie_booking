@@ -7,9 +7,11 @@ var mongoose = require('mongoose');
 var user = require('../models/user')
 const movieList = require('../models/movielist')
 
-router.get('/',(req,res)=>{
-    res.render('adminlogin.ejs')
+router.get('/adminLogin',(req,res)=>{
+    res.render('adminLogin.ejs')
 })
+
+
 
 router.post('/adminLogin',(req,res)=>{
     UserAdmin.findOne({

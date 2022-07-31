@@ -59,12 +59,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(express.static(__dirname + '/views'));
 
-
-var index = require('./routes/index');
-app.use('/', index);
-
 var admin = require('./routes/admin');
-app.use('/admin',admin)
+var index = require('./routes/index');
+app.use('/', (index,admin));
+
+
 
 // app.use('/',ticketRouter)
 
