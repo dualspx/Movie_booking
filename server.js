@@ -35,7 +35,6 @@ mongoose.connect(uri, {
 });
 
 
-
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function () {
@@ -75,10 +74,10 @@ app.get('/logout',(req,res) =>{
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
-    var err = new Error('File Not Found');
-    err.status = 404;
-    next(err);
-  });
+  var err = new Error('File Not Found');
+  err.status = 404;
+  next(err);
+});
   
   
   // error handler

@@ -9,49 +9,49 @@ var movieList = require('../models/movielist')
 
 router.get('/', (req,res) =>{
     res.redirect('/register')
-  })
-  
-  router.get('/register',(req,res)=> {
-    res.render('register.ejs')
-  })
-  
-  router.post('/register',(req,res)=>{
-    try{
-        const newUser = User({
-            name:req.body.nameRegister,
-            email:req.body.emailRegister,
-            password: req.body.passwordRegister
-        })
-        newUser.save()
-        console.log("Success")
-        res.redirect('/login')
-    }
-    catch(err){
-        res.redirect('/register')
-    }
-  
-  })
-  
-  router.get('/login', (req,res)=>{
-    res.render('login.ejs')
-  })
-  
+})
 
-    router.post('/login', (req,res) =>{
-        User.findOne({email:req.body.email,password:req.body.password}, function(err,data){
-        if(data){
-            console.log(data)
-            res.redirect('/homepage')
-        }else console.log("err user")
-        })
+router.get('/register',(req,res)=> {
+    res.render('register.ejs')
+})
+
+router.post('/register',(req,res)=>{
+try{
+    const newUser = User({
+        name:req.body.nameRegister,
+        email:req.body.emailRegister,
+        password: req.body.passwordRegister
     })
-    
+    newUser.save()
+    console.log("Success")
+    res.redirect('/login')
+}
+catch(err){
+    res.redirect('/register')
+}
+
+})
+
+router.get('/login', (req,res)=>{
+res.render('login.ejs')
+})
+
+
+router.post('/login', (req,res) =>{
+    User.findOne({email:req.body.email,password:req.body.password}, function(err,data){
+    if(data){
+        console.log(data)
+        res.redirect('/homepage')
+    }else console.log("err user")
+    })
+})
+
 
 router.get('/homepage', (req,res) => {
-    movie.find({},function(err,data){
-        if(data) {
-            res.render('Homepage.ejs',{data})
-        }
+movie.find({},function(err,data){
+    if(data) {
+        res.render('Homepage.ejs',{data})
+    }
     })
 })
 
